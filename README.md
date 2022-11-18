@@ -53,3 +53,22 @@
 ### Commands to run
 
 - `minikube start` to start our cluster
+
+## Understanding the different kubernetes elements
+
+### 1. Pods
+
+- Pods are the smallest building block in kubernetes object model. The pod "sees" the container but the k8s only see the pod. So, there's a level of abstraction there.
+- Most pods hold just one container though tightly-coupled processes will sometimes share a pod.
+
+### 1. Nodes
+
+- Groups of pods are located on a single machine (real or virtual). Each of which we call a node.
+- Nodes are then grouped into clusters.
+- Each of the cluster is overseen by a master node (most cloud provider provide this one for free)
+
+### 2. Deployment
+
+- Clusters are put in place by deployment (a simple yaml file).
+- It's a simple yaml file that tells about the processes that we want up and running to do our work.
+- K8s then selects the machine and propagates the containers in each pod, pulling down the container images specified in the deployment
