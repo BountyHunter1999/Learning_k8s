@@ -66,9 +66,21 @@
 - Groups of pods are located on a single machine (real or virtual). Each of which we call a node.
 - Nodes are then grouped into clusters.
 - Each of the cluster is overseen by a master node (most cloud provider provide this one for free)
+- Nodes create a network between them that routes all the requests that have been addressed to the cluster so that any request that's sent to any node in the cluster will be answered adequately.
+- K8s will handle what deployable goes to what node.
+- It even recovers nodes if they go down or moving them around from one node to another if there are any resource issues.
+- These are the backbones that support the cluster.
 
 ### 2. Deployment
 
 - Clusters are put in place by deployment (a simple yaml file).
 - It's a simple yaml file that tells about the processes that we want up and running to do our work.
+
+## Features of k8s
+
 - K8s then selects the machine and propagates the containers in each pod, pulling down the container images specified in the deployment
+- By the power of the kubernetes abstraction we have power of interchangeable container replicas and interchangeable machines.
+- K8s will properly utilize the resources.
+- It is self-healing
+  - system compares the ideal state as expressed in the deployment to the actual state of pods and clusters in real operation and tries to attain it.
+- If there are any violation or inconsistency than that something is terminated and instantly reborn
